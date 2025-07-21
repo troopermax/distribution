@@ -99,4 +99,7 @@ fi
 # btop
 [ "${BTOP_TOOL}" = "yes" ] && PKG_DEPENDS_TARGET+=" btop"
 
+# cryptsetup tested on RK3566 and SM8250
+[[ "${DEVICE}" =~ ^(RK3566|SM8250) ]] && PKG_DEPENDS_TARGET+=" cryptsetup"
+
 true

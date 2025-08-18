@@ -26,8 +26,6 @@ THREAD_CONTROL=${BUILD}/.threads
 
 TARGET_ADDONS="$TARGET_IMG/$ADDONS/$ADDON_PATH"
 ADDON_BUILD="$BUILD/$ADDONS/$1"
-STAMPS=$BUILD/.stamps
-STAMPS_INSTALL=$BUILD/image/.stamps
 DOCS=DOCS
 TOOLCHAIN=$BUILD/toolchain
 SYSROOT_PREFIX=$TOOLCHAIN/$TARGET_NAME/sysroot
@@ -38,6 +36,11 @@ FAKEROOT_SCRIPT=$BUILD/.fakeroot
 
 if [ -z "$INSTALL" ]; then
   INSTALL=$BUILD/image/system
+fi
+
+STAMPS=$BUILD/.stamps
+if [ -z "$STAMPS_INSTALL" ]; then
+  STAMPS_INSTALL=$BUILD/image/.stamps
 fi
 
 . config/sources
